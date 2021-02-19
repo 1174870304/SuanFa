@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/shujujiegou/shujujiegou.iml" filepath="$PROJECT_DIR$/shujujiegou/shujujiegou.iml" />
       <module fileurl="file://$PROJECT_DIR$/sort/sort.iml" filepath="$PROJECT_DIR$/sort/sort.iml" />
       <module fileurl="file://$PROJECT_DIR$/suanfa.iml" filepath="$PROJECT_DIR$/suanfa.iml" />
     </modules>
