@@ -72,7 +72,6 @@ public class LinkList<T> implements  Iterable<T> {
             n=n.next;
         }
 
-
         //创建新结点，保存元素t
         Node newNode = new Node(t, null);
         //让当前最后一个结点指向新结点
