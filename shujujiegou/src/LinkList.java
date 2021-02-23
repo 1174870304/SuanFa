@@ -128,6 +128,44 @@ public class LinkList<T> implements  Iterable<T> {
         }
         return -1;
     }
+    /*
+    如题 1->2->3->4反转为4->3->2->1:
+       原理：1.调用reverse(Node curr)方法反转每一个结点，从元素1开始
+            2. 如果发现curr还有下一个结点，则递归调用reverse(curr.next)对下一个结点反转
+            3.最终递归的出口是元素4的结点，因为没有下一个元素了，当找到了出口处，让head指向元素4的结点，供递归调用四次
+            4.递归开始返回
+     */
+    //用来反转整个链表
+    public void reverse(){
+        //判断当前链表是否为空，不为空则调用重载的reverse方法完成反转
+        if(isEmpty()){
+            return;
+        }
+        reverse(head.next);
+    }
+    //反转指定结点的curr,并把反转后的结点返回
+     public Node reverse(Node curr){
+        if(curr.next==null){
+            head.next=curr;
+            return  curr;
+        }
+        //递归的反转当前结点curr的下一个结点；返回值就是链表反转后，当前结点的上一个结点。
+         Node pre=reverse(curr.next);
+        //让返回的结点的下一个结点变为当前结点curr
+         pre.next=curr;
+         //把当前结点的下一个结点标为null
+         curr.next=null;
+         return curr;
+     }
+
+
+
+
+
+
+
+
+
 
 
     @Override
@@ -155,10 +193,10 @@ public class LinkList<T> implements  Iterable<T> {
 
     public static void main(String[] args) throws Exception {
         LinkList<String> list = new LinkList<>();
-        list.insert(0, "张三");
-        list.insert(1, "李四");
-        list.insert(2, "王五");
-        list.insert(3, "赵六");
+        list.insert(0, "1");
+        list.insert(1, "2");
+        list.insert(2, "3");
+        list.insert(3, "4");
 //测试length方法
         for (String s : list) {
             System.out.println(s);
@@ -169,11 +207,11 @@ public class LinkList<T> implements  Iterable<T> {
         System.out.println(list.get(2));
         System.out.println("------------------------");
 //测试remove方法
-        String remove = list.remove(1);
+        /*String remove = list.remove(1);
         System.out.println(remove);
         System.out.println(list.length());
-        System.out.println("----------------");
-        ;
+        System.out.println("----------------");*/
+        list.reverse();
         for (String s : list) {
             System.out.println(s);
         }
