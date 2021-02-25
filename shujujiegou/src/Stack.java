@@ -26,6 +26,11 @@ public class Stack <T> implements  Iterable<T>{
         head=new Node(null,null);
         N=0;
     }
+    //栈的大小
+    public int size(){
+        return  N;
+    }
+
     //判断当前栈中元素个数是否为0
     public boolean isEmpty(){
         return N==0;
